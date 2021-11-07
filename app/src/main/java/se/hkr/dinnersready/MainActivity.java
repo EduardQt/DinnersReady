@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sign_in);
         layout=(ConstraintLayout) findViewById(R.id.layout) ;
         button= (Button) findViewById(R.id.button);
         outline=(ImageView)findViewById(R.id.outline);
