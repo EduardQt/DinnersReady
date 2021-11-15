@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "330510496095",
+    "project_id": "se2-smarthouse",
+    "storage_bucket": "se2-smarthouse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330510496095:android:7d697c3e7cbecc48acc6ea",
+        "android_client_info": {
+          "package_name": "se.hkr.dinnersready"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "330510496095-639cs1h8h0rv06f16cksrnm83v9rvvg9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAc2uwXqR8IJVH8A69XX0USxs5QkePR7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "330510496095-639cs1h8h0rv06f16cksrnm83v9rvvg9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

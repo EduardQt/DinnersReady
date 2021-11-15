@@ -2,6 +2,8 @@ package se.hkr.dinnersready.api.parsers;
 
 import com.google.gson.Gson;
 
+import java.lang.reflect.Type;
+
 public class JsonParser {
     private final Gson gson;
 
@@ -10,7 +12,10 @@ public class JsonParser {
     }
 
     public <T> T parse(String json, Class<T> clazz) {
-        System.out.println(json);
+        return this.gson.fromJson(json, clazz);
+    }
+
+    public <T> T parse(String json, Type clazz) {
         return this.gson.fromJson(json, clazz);
     }
 
