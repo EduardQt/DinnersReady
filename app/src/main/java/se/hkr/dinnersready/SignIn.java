@@ -53,11 +53,11 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                     .setupGet()
                     .addParameter("username", emailText.getText().toString())
                     .addParameter("password", passwordText.getText().toString())
-                    .execute("http://192.168.3.5:8080/login", data -> {
+                    .execute("http://94.46.243.183:8080/login", data -> {
                         Type collectionType = new TypeToken<SuccessResponse<AuthenticationResponse>>() {
                         }.getType();
                         SuccessResponse<AuthenticationResponse> response = JsonParser.getInstance().parse(data, collectionType);
-                        int userId = response.getContent().getUserId();
+                        String userId = response.getContent().getUserId();
                         AuthComponent.getInstance().setUserId(userId);
 
                         FirebaseMessaging.getInstance().getToken()

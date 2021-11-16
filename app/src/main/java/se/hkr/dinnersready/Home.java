@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import se.hkr.dinnersready.api.rest.RestClient;
@@ -24,7 +25,9 @@ public class Home extends AppCompatActivity {
                 .addHeader("Auth-Code", "")
                 .addParameter("userId", AuthComponent.getInstance().getUserId() + "")
                 .addParameter("key", AuthComponent.getInstance().getKey())
-                .execute("http://192.168.3.5:8080/updatekey", data -> { }, data -> { });
+                .execute("http://94.46.243.183:8080/updatekey", data -> {
+                }, data -> {
+                });
         Button createNotification = findViewById(R.id.createNotificationButton);
         createNotification.setOnClickListener(v -> {
             runOnUiThread(() -> {

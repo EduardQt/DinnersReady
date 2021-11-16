@@ -32,7 +32,7 @@ public class SendNotification extends AppCompatActivity {
                     .addHeader("Auth-Code", "")
                     .addParameter("title", title)
                     .addParameter("body", body)
-                    .execute("http://192.168.3.5:8080/createNotification", data -> { }, data -> { });
+                    .execute("http://94.46.243.183:8080/createNotification", data -> { }, data -> { });
         });
     }
 }

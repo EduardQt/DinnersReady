@@ -11,7 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DinnersReady">
-        <activity android:name=".Home"></activity>
+        <activity
+            android:name=".HouseholdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".JoinHouseholdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateHouseholdActivity"
+            android:exported="false" />
+        <activity android:name=".Home" />
         <activity android:name=".SendNotification" />
         <activity
             android:name=".RegisterActivity"
@@ -26,9 +35,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
+
         <service
             android:name=".MessagingService"
             android:exported="false">

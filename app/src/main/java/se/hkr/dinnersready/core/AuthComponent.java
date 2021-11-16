@@ -2,14 +2,14 @@ package se.hkr.dinnersready.core;
 
 public class AuthComponent {
 
-    private int userId;
+    private String userId;
     private String key;
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

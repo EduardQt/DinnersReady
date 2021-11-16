@@ -1,9 +1,9 @@
 package se.hkr.dinnersready.api.rest.responses;
 
 public class AuthenticationResponse {
-    private int userId;
+    private String userId;
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 }
