@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import se.hkr.dinnersready.api.rest.RestClient;
+import se.hkr.dinnersready.core.HouseholdComponent;
 
 public class SendNotification extends AppCompatActivity {
 
@@ -29,9 +30,9 @@ public class SendNotification extends AppCompatActivity {
             RestClient restClient = new RestClient();
             restClient
                     .setupPost()
-                    .addHeader("Auth-Code", "")
                     .addParameter("title", title)
                     .addParameter("body", body)
+                    .addParameter("household-id", HouseholdComponent.getInstance().getHouseHoldId())
                     .execute("http://94.46.243.183:8080/createNotification", data -> { }, data -> { });
         });
     }

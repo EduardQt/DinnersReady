@@ -1,8 +1,10 @@
 package se.hkr.dinnersready;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -10,6 +12,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+
+import se.hkr.dinnersready.api.parsers.JsonParser;
+import se.hkr.dinnersready.api.rest.ErrorResponse;
+import se.hkr.dinnersready.api.rest.RestClient;
+import se.hkr.dinnersready.api.rest.responses.InvalidLoginResponse;
+import se.hkr.dinnersready.api.rest.responses.InvalidRegisterResponse;
+import se.hkr.dinnersready.core.AuthComponent;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -32,6 +45,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -41,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void registerUser() {
         String email = textEmailAddress.getText().toString().trim();
         String password = textPassword.getText().toString().trim();
@@ -90,6 +105,36 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
+        RestClient restClient = new RestClient();
+        restClient
+                .setupPost()
+                .addParameter("username", fullName)
+                .addParameter("password", password)
+                .addParameter("email", email)
+                .execute("http://94.46.243.183:8080/register", data -> {
+                    runOnUiThread(() -> {
+                        startActivity(new Intent(getApplicationContext(), SignIn.class));
+                    });
+                }, data -> {
+                    Type collectionType = new TypeToken<ErrorResponse<InvalidRegisterResponse>>() {
+                    }.getType();
+                    ErrorResponse<InvalidRegisterResponse> response = JsonParser.getInstance().parse(data, collectionType);
+                    String error = response.getContent().getError();
+                    String[] errorData = error.split(":");
+                    switch (errorData[0]) {
+                        case "username":
+                            runOnUiThread(() -> {
+                                textPerssonsName.setError("Username is in use!");
+                                textPerssonsName.requestFocus();
+                            });
+                            break;
+                        case "email":
+                            runOnUiThread(() -> {
+                                textEmailAddress.setError("Email is in use!");
+                                textEmailAddress.requestFocus();
+                            });
+                            break;
+                    }
+                });
     }
 }

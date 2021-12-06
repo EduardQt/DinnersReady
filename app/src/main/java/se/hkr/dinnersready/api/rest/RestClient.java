@@ -70,9 +70,9 @@ public class RestClient implements Closeable {
                 HttpResponse response = this.httpClient.execute(this.request);
                 HttpEntity httpEntity = response.getEntity();
                 String jsonData = EntityUtils.toString(httpEntity);
-                System.out.println(jsonData);
                 Header header = response.getFirstHeader("Status");
 
+                System.out.println(url);
                 switch (header.getValue()) {
                     case "success":
                         onSuccess.accept(jsonData);
