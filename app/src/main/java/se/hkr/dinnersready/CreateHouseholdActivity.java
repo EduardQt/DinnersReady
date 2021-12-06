@@ -95,7 +95,6 @@ public class CreateHouseholdActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), SendNotification.class));
                     });
                 }, data -> {
-
                 });
     }
 }
