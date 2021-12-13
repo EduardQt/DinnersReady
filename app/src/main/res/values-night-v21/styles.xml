@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="timePickerteal">
+        <item name="android:textColorPrimary">@color/teal_200</item> <!-- color for digits -->
+        <item name="android:textColor">@color/teal_200</item> <!-- color for colon -->
+        <item name="android:colorControlNormal">@color/teal_200
+        </item> <!-- color for (horizontal) delimeters -->
+    </style>
+</resources>
