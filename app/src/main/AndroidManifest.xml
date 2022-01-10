@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DinnersReady">
+        <activity android:name=".files.ModifyFileActivity"></activity>
+        <activity android:name=".files.ViewFilesActivity" />
+        <activity android:name=".files.CreateFileActivity" />
+        <activity android:name=".files.MainFilesActivity" />
+        <activity android:name=".ManageHouseHoldActivity" />
         <activity
             android:name=".HouseholdActivity"
             android:exported="false" />

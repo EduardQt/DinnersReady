@@ -15,10 +15,10 @@
         android:layout_width="123dp"
         android:layout_height="18dp"
         android:layout_marginStart="162dp"
-        android:layout_marginLeft="162dp"
+        
         android:layout_marginTop="129dp"
         android:layout_marginEnd="163dp"
-        android:layout_marginRight="163dp"
+        
         android:layout_marginBottom="583dp"
         android:text="DinnersReady"
         app:layout_constraintBottom_toBottomOf="parent"

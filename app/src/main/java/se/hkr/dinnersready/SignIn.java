@@ -71,7 +71,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         RestClient restClient = new RestClient();
         restClient
                 .setupGet()
-                .addParameter("username", emailText.getText().toString())
+                .addParameter("email", emailText.getText().toString())
                 .addParameter("password", passwordText.getText().toString())
                 .execute("http://94.46.243.183:8080/login", data -> {
                     Type collectionType = new TypeToken<SuccessResponse<AuthenticationResponse>>() {

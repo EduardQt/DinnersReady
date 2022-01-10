@@ -32,7 +32,7 @@ public class SendNotification extends AppCompatActivity {
                     .setupPost()
                     .addParameter("title", title)
                     .addParameter("body", body)
-                    .addParameter("household-id", HouseholdComponent.getInstance().getHouseHoldId())
+                    .addParameter("household-name", HouseholdComponent.getInstance().getHouseHoldName())
                     .execute("http://94.46.243.183:8080/createNotification", data -> { }, data -> { });
         });
     }

@@ -81,18 +81,8 @@ public class CreateHouseholdActivity extends AppCompatActivity {
                 .addParameter("name", householdName)
                 .addParameter("password", householdPassword)
                 .execute("http://94.46.243.183:8080/household/create", data -> {
-                    Type collectionType = new TypeToken<SuccessResponse<HouseholdCreationResponse>>() {
-                    }.getType();
-                    SuccessResponse<HouseholdCreationResponse> response = JsonParser.getInstance().parse(data, collectionType);
-
-                    String houseHoldId = response.getContent().getHouseHoldId();
-                    String houseHoldName = response.getContent().getHouseHoldName();
-
-                    HouseholdComponent.getInstance().setHouseHoldId(houseHoldId);
-                    HouseholdComponent.getInstance().setHouseHoldName(houseHoldName);
-
                     runOnUiThread(() -> {
-                        startActivity(new Intent(getApplicationContext(), SendNotification.class));
+                        startActivity(new Intent(getApplicationContext(), HouseholdActivity.class));
                     });
                 }, data -> {
                 });
